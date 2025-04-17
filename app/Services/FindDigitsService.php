@@ -41,10 +41,6 @@ class FindDigitsService
 
     public function saveResults(array $data)
     {
-        $data = array_map(function($arr) {
-            $arr['result'] = json_encode($arr['result']);
-            return $arr;
-        }, $data);
         $this->resultRepository->saveResults(new SaveResultRequest($data));
     }
 }
